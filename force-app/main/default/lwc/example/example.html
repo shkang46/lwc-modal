@@ -1,0 +1,41 @@
+<!--
+  @description       : 
+  @author            : Seongho Kang
+  @group             : i2max R&D
+  @last modified on  : 09-02-2022
+  @last modified by  : Seongho Kang
+  Modifications Log
+  Ver   Date         Author         Modification
+  1.0   09-01-2022   Seongho Kang   Initial Version
+-->
+<template>
+    <div class="container">
+        <lightning-button label="Open" onclick={openModal}></lightning-button>
+
+        <c-modal hide-close="true">
+            <span slot="header">
+                <p>Header</p>
+            </span>
+
+            <span slot="body">
+                <lightning-layout horizontal-align="center">
+                    <lightning-layout-item size="12">
+                        <lightning-input type="text" label="Id" class="input-id"></lightning-input>
+                        <lightning-input
+                            type="password"
+                            label="Password"
+                            class="input-password"
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                            message-when-pattern-mismatch="Minimum eight characters, at least one letter and one number."
+                        ></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </span>
+
+            <span slot="footer">
+                <lightning-button label="Close" class="slds-p-horizontal_x-small" onclick={closeModal}></lightning-button>
+                <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+            </span>
+        </c-modal>
+    </div>
+</template>
