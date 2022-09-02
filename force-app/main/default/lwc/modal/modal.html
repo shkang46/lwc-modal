@@ -1,0 +1,44 @@
+<!--
+  @description       : 
+  @author            : Seongho Kang
+  @group             : i2max R&D
+  @last modified on  : 09-02-2022
+  @last modified by  : Seongho Kang
+  Modifications Log
+  Ver   Date         Author         Modification
+  1.0   09-01-2022   Seongho Kang   Initial Version
+-->
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" class={modalClass}>
+        <div class="container" style={modalWidth}>
+            <template if:false={_hideClose}>
+                <lightning-button-icon
+                    class="close"
+                    icon-name="utility:close"
+                    variant="bare-inverse"
+                    size="large"
+                    onclick={close}
+                ></lightning-button-icon>
+            </template>
+
+            <template if:false={_hideHeader}>
+                <div class="slds-modal__header">
+                    <h1 class="slds-modal__title slds-hyphenate">
+                        <slot name="header"></slot>
+                    </h1>
+                </div>
+            </template>
+
+            <div class="slds-modal__content slds-p-around_medium">
+                <slot name="body"></slot>
+            </div>
+
+            <template if:false={_hideFooter}>
+                <div class="slds-modal__footer">
+                    <slot name="footer"></slot>
+                </div>
+            </template>
+        </div>
+    </section>
+    <div class={modalBackdropClass}></div>
+</template>
