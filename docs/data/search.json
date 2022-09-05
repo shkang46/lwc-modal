@@ -1,0 +1,20 @@
+{
+    "list": [
+        { "title": "Modal", "link": "<a href=\"Modal.html\">Modal</a>" },
+        {
+            "title": "Modal.close",
+            "link": "<a href=\"Modal.html#.close\">Modal &rtrif; close</a>",
+            "description": "Custom modal component"
+        },
+        {
+            "title": "Modal.open",
+            "link": "<a href=\"Modal.html#.open\">Modal &rtrif; open</a>",
+            "description": "Custom modal component"
+        },
+        {
+            "title": "Modal.toBoolean",
+            "link": "<a href=\"Modal.html#.toBoolean\">Modal &rtrif; toBoolean</a>",
+            "description": "Custom modal component"
+        }
+    ]
+}
