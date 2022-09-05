@@ -57,28 +57,28 @@ export default class Modal extends LightningElement {
      * Open the modal
      */
     @api open() {
-        this.isModalOpen = true;
+        this._isModalOpen = true;
     }
 
     /**
      * Close the modal
      */
     @api close() {
-        this.isModalOpen = false;
+        this._isModalOpen = false;
     }
 
     /**************************************************
      * Private
      **************************************************/
 
-    isModalOpen = false;
+    _isModalOpen = false;
 
     get modalClass() {
-        return `slds-modal ${this.isModalOpen ? "slds-fade-in-open" : ""}`;
+        return `slds-modal ${this._isModalOpen ? "slds-fade-in-open" : ""}`;
     }
 
     get modalBackdropClass() {
-        return `slds-backdrop ${this.isModalOpen ? "slds-backdrop_open" : ""}`;
+        return `slds-backdrop ${this._isModalOpen ? "slds-backdrop_open" : ""}`;
     }
 
     get modalWidth() {
