@@ -1,46 +1,77 @@
 import { LightningElement, api } from "lwc";
 
 export default class Modal extends LightningElement {
-    isModalOpen = false;
+    /**************************************************
+     * Public
+     **************************************************/
 
     /**
-     * @type {number | undefined} px
+     * @type {number | string | undefined}
      */
-    @api width;
-
-    /**
-     * @type {boolean}
-     */
-    @api hideClose = false;
-    get _hideClose() {
-        return this.toBoolean(this.hideClose);
-    }
-
-    /**
-     * @type {boolean}
-     */
-    @api hideHeader = false;
-    get _hideHeader() {
-        return this.toBoolean(this.hideHeader);
-    }
-
-    /**
-     * @type {boolean}
-     */
-    @api hideFooter = false;
-    get _hideFooter() {
-        return this.toBoolean(this.hideFooter);
-    }
-
+    _width;
     @api
-    open() {
+    get width() {
+        return this._width;
+    }
+    set width(value) {
+        this._width = typeof value === "number" ? value + "px" : value;
+    }
+
+    /**
+     * @type {boolean}
+     */
+    _hideClose = false;
+    @api
+    get hideClose() {
+        return this._hideClose;
+    }
+    set hideClose(value) {
+        this._hideClose = this.toBoolean(value);
+    }
+
+    /**
+     * @type {boolean}
+     */
+    _hideHeader = false;
+    @api
+    get hideHeader() {
+        return this._hideHeader;
+    }
+    set hideHeader(value) {
+        this._hideClose = this.toBoolean(value);
+    }
+
+    /**
+     * @type {boolean}
+     */
+    _hideFooter = false;
+    @api
+    get hideFooter() {
+        return this._hideFooter;
+    }
+    set hideFooter(value) {
+        this._hideFooter = this.toBoolean(value);
+    }
+
+    /**
+     * Open the modal
+     */
+    @api open() {
         this.isModalOpen = true;
     }
 
-    @api
-    close() {
+    /**
+     * Close the modal
+     */
+    @api close() {
         this.isModalOpen = false;
     }
+
+    /**************************************************
+     * Private
+     **************************************************/
+
+    isModalOpen = false;
 
     get modalClass() {
         return `slds-modal ${this.isModalOpen ? "slds-fade-in-open" : ""}`;
@@ -51,7 +82,7 @@ export default class Modal extends LightningElement {
     }
 
     get modalWidth() {
-        return `width:${this.width ? this.width + "px" : "50%"} !important;`;
+        return `width:${this._width ? this._width : "50%"} !important;`;
     }
 
     /**
